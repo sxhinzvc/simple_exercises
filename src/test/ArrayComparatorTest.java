@@ -11,6 +11,7 @@ public class ArrayComparatorTest {
         int array1[]  = {1, 2, 3};
         int array2[]  = {1, 2, 3};
         assertThat(comparator.compareArraysUsingArrays(array1, array2)).isTrue();
+        assertThat(comparator.compareArraysWithoutUsingArrays(array1, array2)).isTrue();
     }
 
     @Test
@@ -18,5 +19,14 @@ public class ArrayComparatorTest {
         int array1[]  = {1, 2, 3};
         int array2[]  = {3, 1, 2};
         assertThat(comparator.compareArraysUsingArrays(array1, array2)).isTrue();
+        assertThat(comparator.compareArraysWithoutUsingArrays(array1, array2)).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfArraysDoNotHaveSameContent() {
+        int array1[]  = {1, 2, 3};
+        int array2[]  = {3, 4, 2};
+        assertThat(comparator.compareArraysUsingArrays(array1, array2)).isFalse();
+        assertThat(comparator.compareArraysWithoutUsingArrays(array1, array2)).isFalse();
     }
 }
