@@ -16,7 +16,7 @@ public class StringComparatorTest {
     }
 
     @Test
-    public void shouldReturnFalseIfStringsHaveDifferentLengths() {
+    public void shouldReturnFalseIfStringsHaveDifferentLengthsUsingArrays() {
         String first = "some";
         String second = "someLongerString";
 
@@ -24,7 +24,7 @@ public class StringComparatorTest {
     }
 
     @Test
-    public void shouldReturnTrueIfStringsHaveSameCharacters() {
+    public void shouldReturnTrueIfStringsHaveSameCharactersUsingArrays() {
         String first = "some";
         String second = "mose";
 
@@ -32,7 +32,7 @@ public class StringComparatorTest {
     }
 
     @Test
-    public void shouldReturnFalseIfStringsDoNotHaveSameCharacters() {
+    public void shouldReturnFalseIfStringsDoNotHaveSameCharactersUsingArrays() {
         String first = "somde";
         String second = "mosze";
 
