@@ -1,5 +1,6 @@
 package chapter1;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -7,21 +8,32 @@ import static org.junit.Assert.assertTrue;
 
 public class UniqueStringValidatorTest {
 
+    public static final String UNIQUE_STRING = "alskdj";
+    public static final String DUPLICATE_STRING = "alskaj";
+    private UniqueStringValidator validator;
+
+    @Before
+    public void setUp() throws Exception {
+        validator = new UniqueStringValidator();
+    }
+
     @Test
     public void shouldReturnTrueIfStringHasUniqueCharacters() {
-        UniqueStringValidator validator = new UniqueStringValidator();
-
-        boolean isStringUnique = validator.isStringUnique("alskdj");
-
-        assertTrue(isStringUnique);
+        assertTrue(validator.isStringUnique(UNIQUE_STRING));
     }
 
     @Test
     public void shouldReturnFalseIfStringHasDuplicateCharacters() {
-        UniqueStringValidator validator = new UniqueStringValidator();
+        assertFalse(validator.isStringUnique(DUPLICATE_STRING));
+    }
 
-        boolean isStringUnique = validator.isStringUnique("alskaj");
+    @Test
+    public void shouldReturnTrueIfStringHasUniqueCharactersUsingHashSet() {
+        assertTrue(validator.isStringUniqueUsingHashSet(UNIQUE_STRING));
+    }
 
-        assertFalse(isStringUnique);
+    @Test
+    public void shouldReturnFalseIfStringHasDuplicateCharactersUsingHashSet() {
+        assertFalse(validator.isStringUniqueUsingHashSet(DUPLICATE_STRING));
     }
 }
